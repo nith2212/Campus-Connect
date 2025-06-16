@@ -1,0 +1,818 @@
+/* --- NEW: Import Quicksand font from Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+/* --- END NEW FONT IMPORT --- */
+
+/* Reset and basic typography */
+body {
+    margin: 0;
+    /* --- UPDATED FONT FAMILY --- */
+    font-family: 'Quicksand', sans-serif; /* Changed to Quicksand */
+    /* --- END UPDATED FONT FAMILY --- */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f0f2f5; /* Light gray background - adjusted for consistency with new cards */
+    color: #424242; /* Darker text */
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #673ab7; /* Deep Lavender */
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+a {
+    color: #673ab7; /* Deep Lavender */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #512da8; /* Slightly darker lavender on hover */
+    text-decoration: underline;
+}
+
+/* Global container for content */
+.app-container {
+    padding-top: 70px; /* Increased space for fixed navbar */
+    padding-bottom: 30px;
+    display: flex; /* Use flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align to top, not center vertically */
+    min-height: calc(100vh - 70px); /* Ensure it takes full height below navbar */
+}
+
+.content-wrapper {
+    max-width: 1200px; /* Max width for main content */
+    width: 100%; /* Ensure it takes full width within max-width */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #673ab7; /* Deep Lavender */
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* --- NEW: Navbar Left Section for Brand and Role --- */
+.navbar-left-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Space between brand and role indicator */
+    flex-shrink: 0; /* Prevent shrinking when space is tight */
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-decoration: none;
+    flex-shrink: 0; /* Prevent shrinking on smaller screens */
+    margin-right: 20px; /* Space from nav links */
+    transition: color 0.2s ease; /* Add transition for smooth hover */
+}
+
+.navbar-brand:hover { /* Fix for CampusConnect hover */
+    color: #d1c4e9; /* Light Lavender on hover (ensures visibility) */
+}
+
+/* --- NEW: User Role Indicator --- */
+.user-role-indicator {
+    background-color: #512da8; /* Slightly darker lavender for better contrast */
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #eee; /* Light text for readability */
+    white-space: nowrap; /* Prevent role text from wrapping */
+}
+/* --- END NEW NAVBAR STYLES --- */
+
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1; /* Allow nav items to take available space */
+    justify-content: flex-end; /* Push items to the right */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping for better responsiveness */
+}
+
+.nav-item {
+    margin-left: 25px; /* Space between nav items */
+    flex-shrink: 0; /* Prevent shrinking of individual nav items */
+    margin-bottom: 5px; /* For wrapped items on smaller screens */
+}
+
+.nav-link {
+    color: white; /* Navbar links are white by default */
+    font-size: 1.1em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 5px 0; /* Add padding for clickable area */
+    white-space: nowrap; /* Prevent text wrapping within a link */
+}
+
+.nav-link:hover { /* Fix for other nav links hover */
+    color: #d1c4e9; /* Light Lavender on hover (ensures visibility) */
+    transform: translateY(-2px); /* Slight lift */
+    text-decoration: none;
+}
+
+.nav-link.active {
+    font-weight: 700;
+    border-bottom: 2px solid white; /* Active link indicator */
+}
+
+.navbar-text {
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 20px;
+    font-size: 0.95em;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.navbar-button {
+    background-color: white;
+    color: #673ab7; /* Deep Lavender */
+    border: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.navbar-button:hover {
+    background-color: #d1c4e9; /* Light Lavender for background on hover */
+    color: #512da8; /* Darker lavender for text on hover */
+}
+
+.unauthorized-container,
+.not-found-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    width: 100%; /* Ensure it takes full width within max-width */
+    margin: 50px auto; /* Centering the card explicitly */
+    box-sizing: border-box;
+}
+
+.unauthorized-container h1,
+.not-found-container h1 {
+    color: #ef5350; /* Soft Red for errors */
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.unauthorized-container p,
+.not-found-container p {
+    font-size: 1.1em;
+    color: #757575; /* Medium Gray */
+    margin-bottom: 30px;
+}
+
+/* Adjusted primary action button to match overall theme */
+.action-button {
+    background-color: #673ab7; /* Deep Lavender */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+.action-button:hover {
+    background-color: white;
+    color: #673ab7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjusted secondary action button to match overall theme */
+.secondary-action-button {
+    background-color: #9c27b0; /* Vibrant Purple */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondary-action-button:hover {
+    background-color: white;
+    color: #9c27b0;
+    border: 1px solid #9c27b0;
+}
+
+
+/* Dashboard, Faculty, HomePage styling */
+.page-header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0; /* Lighter border */
+}
+
+.page-header h1, .page-header h2 {
+    color: #424242; /* Dark text for primary titles */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.1em;
+    color: #757575; /* Medium Gray */
+}
+
+.info-badge {
+    background-color: #673ab7; /* Deep Lavender */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.page-nav {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.page-nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 15px; /* Space between links */
+    justify-content: center;
+}
+
+.page-nav-item {
+    display: inline-block;
+}
+
+.page-nav-link {
+    background-color: #ede7f6; /* Very light lavender */
+    color: #673ab7; /* Deep Lavender */
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    text-decoration: none;
+    display: block; /* Make the whole area clickable */
+}
+
+.page-nav-link:hover {
+    background-color: #512da8; /* Darker lavender for background on hover */
+    color: white; /* Text color is white on hover */
+    transform: translateY(-2px);
+}
+
+.page-actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.page-actions .action-button,
+.page-actions .secondary-action-button {
+    margin: 0 10px;
+}
+
+/* NEW: Dashboard Welcome Card Styles */
+.welcome-card {
+    background-color: #ffffff; /* White background for the card */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    text-align: center;
+    max-width: 500px; /* Limit card width */
+    margin: 80px auto; /* Center the card and give space from top */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content vertically */
+    justify-content: center;
+}
+
+.welcome-card .welcome-text {
+    font-size: 1.8em;
+    font-weight: 700; /* Bold */
+    color: #424242; /* Dark gray for "WELCOME TO" */
+    margin-bottom: 10px; /* Space below this text */
+    letter-spacing: 2px; /* Add some spacing */
+}
+
+.welcome-card .campus-connect-highlight {
+    font-size: 3.5em; /* Very large for "Campus Connect" */
+    font-weight: 900; /* Extra bold */
+    color: #673ab7; /* Deep Lavender */
+    margin: 0; /* Remove default margins */
+    line-height: 1; /* Tighten line height */
+    position: relative; /* For the underline effect */
+    padding-bottom: 10px; /* Space for the pseudo-element underline */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+.welcome-card .campus-connect-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Width of the underline */
+    height: 4px; /* Thickness of the underline */
+    background-color: #9c27b0; /* Vibrant Purple underline */
+    border-radius: 2px;
+}
+
+.welcome-card .user-details {
+    font-size: 1.5em;
+    font-weight: 600; /* Bold for name and role */
+    color: #512da8; /* Slightly darker lavender for user details */
+    margin-top: 25px; /* Space above user details */
+}
+
+/* --- NEW STYLES FOR NOTICES LIST --- */
+
+/* Specific top margin for the filter card */
+.filter-section-card {
+    margin-top: 25px; /* Add some space between title and filter card */
+    margin-bottom: 25px; /* Space between filter card and notice grid */
+}
+
+/* Custom Card base style - for both filter card and notice cards */
+.custom-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-body { /* Keep original card-body for padding */
+    padding: 20px;
+}
+
+/* Custom form elements for filters */
+.custom-form-select {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px 12px;
+    font-size: 1rem;
+    width: 100%;
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+/* Changed focus style to match theme */
+.custom-form-select:focus {
+    border-color: #673ab7; /* Deep Lavender for border */
+    box-shadow: 0 0 0 0.25rem rgba(103, 58, 183, 0.25); /* Deep Lavender with transparency */
+    outline: none;
+}
+
+/* Specific styling for the "Notices" page title */
+.page-title-notices {
+    font-size: 2.8rem; /* Bigger */
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Changed underline color to match theme */
+.page-title-notices::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 120px; /* Wider underline */
+    height: 5px; /* Thicker underline */
+    background-color: #9c27b0; /* Vibrant Purple underline */
+    border-radius: 3px;
+}
+
+/* Notice List Grid Layout - Responsive 2-column setup */
+.notice-list-grid {
+    display: grid;
+    /* Default: single column on small screens */
+    grid-template-columns: 1fr;
+    gap: 25px; /* Space between cards */
+    padding: 20px 0; /* Padding inside the grid container */
+    max-width: 950px; /* Adjust this max-width as needed for 2 columns.
+                         (e.g., 2 cards of ~450px + 25px gap = 925px) */
+    margin: 0 auto; /* Center the grid container itself within content-wrapper */
+}
+
+/* Media query for 2 columns on larger screens */
+@media (min-width: 768px) { /* Adjust breakpoint as needed (e.g., 992px for wider screens) */
+    .notice-list-grid {
+        grid-template-columns: repeat(2, 1fr); /* Force 2 equal columns */
+    }
+}
+
+
+/* Individual Notice Card Styling */
+.notice-card {
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Push action buttons to bottom */
+    height: 100%; /* Ensure cards in a row have same height */
+    /* Inherits .custom-card styles for background, border, shadow, hover */
+}
+
+/* Styling for the notice title within the card - Changed color to match theme */
+.notice-title-bold {
+    font-size: 1.6rem; /* Bigger title */
+    font-weight: 700; /* Bold title */
+    color: #673ab7; /* Deep Lavender for titles */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee; /* Subtle separator */
+    padding-bottom: 5px;
+}
+
+/* Content within the notice card */
+.notice-content {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 15px; /* Space before timestamp/actions */
+}
+
+/* Actions section (Edit/Delete buttons) */
+.notice-actions {
+    margin-top: auto; /* Pushes buttons to the bottom of the card */
+    padding-top: 15px; /* Space above buttons */
+    border-top: 1px solid #eee; /* Separator line above buttons */
+    display: flex; /* Arrange buttons side-by-side */
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+}
+
+/* Specific styles for small action buttons (Edit/Delete) - Now mirrors main action-button */
+.action-button-small {
+    background-color: #673ab7; /* Deep Lavender */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px; /* Smaller padding */
+    font-size: 0.85rem; /* Smaller font */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease, color 0.2s ease;
+}
+
+.action-button-small:hover {
+    background-color: white; /* White background on hover */
+    color: #673ab7; /* Deep Lavender text on hover */
+    transform: translateY(-1px);
+    border: 1px solid #673ab7; /* Add border on hover to prevent layout shift */
+}
+
+/* Secondary action button (Delete) - Base color remains, hover adjusted to match theme */
+.secondary-action-button-small {
+    background-color: #dc3545; /* Danger red (kept as requested) */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px; /* Smaller padding */
+    font-size: 0.85rem; /* Smaller font */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.secondary-action-button-small:hover {
+    background-color: white; /* White background on hover */
+    color: #dc3545; /* Danger red text on hover */
+    border: 1px solid #dc3545; /* Red border to match text on hover */
+    transform: translateY(-1px);
+}
+
+
+/* --- NEW STYLES FOR RESOURCE MODULE --- */
+
+/* Input fields for forms (similar to custom-form-select but for text) */
+.custom-form-input {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px 12px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-form-input:focus {
+    border-color: #673ab7; /* Deep Lavender for border */
+    box-shadow: 0 0 0 0.25rem rgba(103, 58, 183, 0.25); /* Deep Lavender with transparency */
+    outline: none;
+}
+
+/* Styled header for custom cards (e.g., upload form) */
+.custom-card-header {
+    background-color: #ede7f6; /* Very light lavender, similar to page-nav-link background */
+    color: #673ab7; /* Deep Lavender text */
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative; /* Needed for positioning the close button */
+}
+
+.custom-card-header h3 { /* Ensure h3 inside custom-card-header is styled */
+    margin: 0;
+    color: inherit; /* Inherit color from parent */
+    font-size: 1.4em; /* Make header text slightly larger than default h3 */
+    font-weight: 700;
+}
+
+/* Specific margin for the resource upload form card */
+.resource-upload-section-card,
+.notice-form-section-card { /* Added for notice form card as well */
+    margin-top: 25px; /* Space between filter/upload button and upload form */
+    margin-bottom: 25px; /* Space after the form */
+    max-width: 600px; /* Limit width of the form for better aesthetics */
+    margin-left: auto; /* Center the form */
+    margin-right: auto; /* Center the form */
+}
+
+
+/* Grid layout for resource list items */
+.resource-list-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default: single column on small screens */
+    gap: 25px; /* Space between resource cards */
+    padding: 20px 0;
+}
+
+/* Media query for 2 columns on larger screens (adjust breakpoint if needed) */
+@media (min-width: 768px) {
+    .resource-list-grid {
+        grid-template-columns: repeat(2, 1fr); /* Force 2 equal columns */
+        max-width: 950px; /* Constrain grid width for better appearance with 2 columns */
+        margin: 0 auto; /* Center the grid within content-wrapper */
+    }
+}
+
+/* Styling for individual resource cards (inherits custom-card) */
+.resource-item-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.resource-item-card .card-body {
+    padding: 25px; /* Slightly more padding for resource items */
+}
+
+.resource-title {
+    font-size: 1.4rem; /* Prominent title */
+    font-weight: 600;
+    color: #673ab7; /* Deep Lavender */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee; /* Subtle separator */
+    padding-bottom: 5px;
+}
+
+.resource-file-link {
+    color: #512da8; /* Slightly darker lavender for links */
+    font-weight: 500;
+    word-break: break-all; /* Ensure long URLs wrap */
+    transition: color 0.2s ease;
+}
+
+.resource-file-link:hover {
+    color: #673ab7; /* Deep Lavender on hover */
+    text-decoration: underline;
+}
+
+.resource-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px; /* Space above meta info */
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0; /* Light separator */
+}
+
+.info-badge-small {
+    background-color: #ede7f6; /* Very light lavender */
+    color: #673ab7; /* Deep Lavender text */
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+/* --- NEW STYLES FOR ADMIN PANEL --- */
+
+/* Basic Custom Table Styling */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-radius: 8px; /* Match card border-radius */
+    overflow: hidden; /* Ensures rounded corners for content inside */
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Light separator */
+}
+
+.custom-table thead th {
+    background-color: #f5f5f5; /* Light background for headers */
+    font-weight: 600;
+    color: #333;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f0f0f0; /* Subtle hover effect */
+}
+
+/* Optional: zebra striping for rows */
+.custom-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Specific background color for danger actions (like Delete buttons) */
+.danger-button-bg {
+    background-color: #dc3545; /* Bootstrap's danger red */
+    color: #fff; /* White text for contrast */
+    border: 1px solid #dc3545;
+}
+.danger-button-bg:hover {
+    background-color: #c82333; /* Darker red on hover */
+    border-color: #bd2130;
+}
+
+/* For consistent close buttons (e.g., in modals or forms) */
+.custom-close-button {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    font-weight: 300; /* Lighter weight for the 'x' */
+    color: #757575;
+    cursor: pointer;
+    position: absolute; /* Allows precise positioning relative to parent */
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.custom-close-button:hover {
+    color: #424242; /* Darker on hover */
+}
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align to the left when stacked */
+        padding: 10px 15px;
+    }
+
+    /* Adjust navbar-left-section for small screens */
+    .navbar-left-section {
+        width: 100%; /* Take full width */
+        justify-content: center; /* Center content horizontally */
+        margin-bottom: 10px; /* Space below this section */
+        gap: 1rem; /* Slightly reduced gap for small screens */
+    }
+
+    .navbar-brand {
+        margin-bottom: 0; /* No extra margin when stacked within section */
+        margin-right: 0; /* No extra margin */
+        text-align: center; /* Center brand name */
+    }
+
+    /* Role indicator might need font-size adjustment if too big */
+    .user-role-indicator {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center; /* Center nav links */
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-item {
+        margin: 5px 0; /* Adjust vertical margin for stacked items */
+        width: 100%; /* Make each item take full width */
+        text-align: center; /* Center link text */
+    }
+
+    .nav-link {
+        padding: 10px 0; /* Increase padding for easier tapping */
+    }
+
+    .navbar-text {
+        margin-right: 0;
+        margin-bottom: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .navbar-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .content-wrapper {
+        padding: 15px;
+    }
+
+    .page-header h1, .page-header h2 {
+        font-size: 2em;
+    }
+
+    .unauthorized-container,
+    .not-found-container,
+    .welcome-card { /* Apply to welcome-card too */
+        padding: 30px;
+        margin: 30px auto; /* Adjust margin for smaller screens */
+    }
+
+    .welcome-card .welcome-text {
+        font-size: 1.5em;
+    }
+
+    .welcome-card .campus-connect-highlight {
+        font-size: 2.8em;
+    }
+
+    .welcome-card .user-details {
+        font-size: 1.2em;
+    }
+
+    .page-nav-list {
+        flex-direction: column; /* Stack nav items on small screens */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .page-actions {
+        flex-direction: column;
+    }
+
+    .page-actions .action-button,
+    .page-actions .secondary-action-button {
+        margin: 10px 0; /* Add vertical margin for stacked buttons */
+        width: 100%;
+    }
+}
+
+/* Ensure centering for auth forms on all screen sizes */
+@media (min-width: 769px) {
+    .auth-form-container { /* This class is currently not used directly in App.js for Login/Register,
+                              but included here if you wrap them in such a container later */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}

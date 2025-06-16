@@ -1,0 +1,161 @@
+/* src/components/AuthForms.module.css */
+
+.container {
+    max-width: 400px;
+    margin: 50px auto; /* Ensure centering within its parent */
+    padding: 30px;
+    border: 1px solid #e0e0e0; /* Lighter border (new) */
+    border-radius: 10px; /* Slightly more rounded */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    background-color: #ffffff;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; /* Modern font stack */
+    color: #424242; /* Darker text (new) */
+    box-sizing: border-box; /* Crucial for responsive width */
+    width: 90%; /* Allow it to shrink on smaller screens */
+}
+
+.heading {
+    text-align: center;
+    color: #673ab7; /* Deep Lavender (new) */
+    margin-bottom: 30px; /* More space */
+    font-size: 2.2em; /* Larger heading */
+    font-weight: 600;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup {
+    margin-bottom: 20px; /* More space between form groups */
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500; /* Slightly lighter bold */
+    color: #757575; /* Medium gray for labels (new) */
+    font-size: 0.95em;
+}
+
+.input,
+.select {
+    width: 100%;
+    padding: 12px 15px; /* More padding */
+    border: 1px solid #bdbdbd; /* Slightly darker grey border (new) */
+    border-radius: 6px; /* Slightly more rounded */
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.input:focus,
+.select:focus {
+    border-color: #9575cd; /* Lighter Lavender focus (new) */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(103, 58, 183, 0.25); /* Subtle lavender glow (new) */
+}
+
+.select {
+    appearance: none; /* Remove default select arrow */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23424242' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"); /* Darker arrow (new) */
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+.button {
+    color: white;
+    padding: 14px 25px; /* More padding for bigger button */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em; /* Larger font */
+    font-weight: 600;
+    margin-top: 25px; /* More space above button */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.button:hover:not(:disabled) {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Specific button colors */
+.loginButton {
+    background-color: #673ab7; /* Deep Lavender (new) */
+}
+
+.loginButton:hover:not(:disabled) {
+    background-color: #512da8; /* Darker lavender (new) */
+}
+
+.registerButton {
+    background-color: #9c27b0; /* Vibrant Purple (new) */
+}
+
+.registerButton:hover:not(:disabled) {
+    background-color: #7b1fa2; /* Darker vibrant purple (new) */
+}
+
+.errorText {
+    color: #ef5350; /* Soft Red for errors (new) */
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.loadingText {
+    color: #673ab7; /* Deep Lavender (new) */
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.linkText {
+    text-align: center;
+    margin-top: 30px; /* More space */
+    font-size: 0.95em;
+    color: #757575; /* Medium Gray (new) */
+}
+
+.authLink {
+    color: #673ab7; /* Deep Lavender (new) */
+    cursor: pointer;
+    text-decoration: none; /* No underline by default */
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.authLink:hover {
+    color: #512da8; /* Darker lavender on hover (new) */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Specific link colors for register/login pages */
+.registerLink {
+    color: #673ab7; /* Login page register link (new) */
+}
+
+.registerLink:hover {
+    color: #512da8; /* Darker lavender on hover (new) */
+}
+
+.loginLink {
+    color: #9c27b0; /* Register page login link (new) */
+}
+
+.loginLink:hover {
+    color: #7b1fa2; /* Darker vibrant purple on hover (new) */
+}
